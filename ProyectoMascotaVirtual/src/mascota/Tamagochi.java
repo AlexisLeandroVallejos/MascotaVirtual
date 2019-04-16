@@ -2,15 +2,18 @@ package mascota;
 
 public class Tamagochi {
 
-	private boolean contento;
+	private int contento;
 	
 	private boolean hambriento;
+	
+	private int cantidadDeVecesQueJugo;
 	
 	private boolean aburrido;
 	
 	public Tamagochi()
 	{
-		setContento(false);
+		setContento(0);
+		cantidadDeVecesQueJugo = 0;
 		hambriento = false;
 	}
 	
@@ -18,28 +21,33 @@ public class Tamagochi {
 	{
 		if(hambriento)
 		{
-			setContento(true);
+			setContento( getContento() + 1);
 		}
 	}
 
 	public void Jugar() throws RuntimeException
 	{
-		if(puedeJugar())
+		if(this.getContento() > 0)
 		{
 			
+		}
+		if(cantidadDeVecesQueJugo > 5)
+		{
+			this.hambriento = true;
 		}
 	}
 	
 	public boolean puedeJugar() {
-		// TODO Auto-generated method stub (aburrido || contento) && !hambriento)
-		return false;
+		// TODO Auto-generated method stub 
+		return ((this.aburrido || this.contento > 0) && !this.hambriento);
+		//return false;
 	}
 
-	public boolean isContento() {
+	public int getContento() {
 		return contento;
 	}
 
-	public void setContento(boolean contento) {
+	public void setContento(int contento) {
 		this.contento = contento;
 	}
 
@@ -49,6 +57,19 @@ public class Tamagochi {
 
 	public void setAburrido(boolean aburrido) {
 		this.aburrido = aburrido;
+	}
+
+	public int getCantidadDeVecesQueJugo() {
+		return cantidadDeVecesQueJugo;
+	}
+
+	public void setCantidadDeVecesQueJugo(int cantidadDeVecesQueJugo) {
+		this.cantidadDeVecesQueJugo = cantidadDeVecesQueJugo;
+	}
+
+	public boolean estaHambrienta() {
+		// TODO Auto-generated method stub
+		return this.hambriento;
 	}
 	
 }

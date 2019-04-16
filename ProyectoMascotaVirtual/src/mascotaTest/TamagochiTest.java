@@ -41,6 +41,31 @@ public class TamagochiTest {
 		
 		Assert.assertEquals("No puede jugar", true, pet.puedeJugar());
 	}
+	
+
+	@Test
+	public void come_TamagochiEstaHambrientaYCome()
+	{
+		
+		Tamagochi pet = new Tamagochi();
+	
+		pet.Comer();
+		Assert.assertEquals("No se puso contenta", false, pet.estaHambrienta());
+	}
+	
+
+	@Test
+	public void juega_TamagochiJuega5VecesYSePoneHambrienta()
+	{
+		
+		Tamagochi pet = new Tamagochi();
+		for(int i = 0; i < 5 ; i++)
+		{
+			pet.Jugar();	
+		}
+		Assert.assertEquals("No Esta Hambrienta", false, pet.estaHambrienta());
+	}
+
 /*
 	@Test
 	public void pagar_PagaViajeDe90ConSaldo50()
