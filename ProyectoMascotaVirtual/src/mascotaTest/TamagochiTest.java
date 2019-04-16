@@ -34,21 +34,43 @@ public class TamagochiTest {
 	
 
 	@Test
+	public void juega_TamagochiJuegayTieneNivelDeContentes2()
+	{
+		
+		Tamagochi pet = new Tamagochi();
+		pet.Jugar();
+		
+		Assert.assertEquals("No aumento su nivel de felicidad", true, pet.getContento() == 2);
+	}
+	
+	@Test
 	public void puedeJugar_tamagochiPuedeJugar()
 	{
 		
 		Tamagochi pet = new Tamagochi();
+		pet.setHambrienta(true);
+		pet.Comer();
 		
 		Assert.assertEquals("No puede jugar", true, pet.puedeJugar());
 	}
 	
+	@Test
+	public void comer_tamagochiComeYSuFelicidadAumentaEnUno()
+	{
+		
+		Tamagochi pet = new Tamagochi();
+		pet.setHambrienta(true);
+		pet.Comer();
+		
+		Assert.assertEquals("No aumento la felicidad en 1", 1, pet.getContento());
+	}
 
 	@Test
 	public void come_TamagochiEstaHambrientaYCome()
 	{
 		
 		Tamagochi pet = new Tamagochi();
-	
+		pet.setHambrienta(true);
 		pet.Comer();
 		Assert.assertEquals("No se puso contenta", false, pet.estaHambrienta());
 	}
@@ -66,6 +88,14 @@ public class TamagochiTest {
 		Assert.assertEquals("No Esta Hambrienta", false, pet.estaHambrienta());
 	}
 
+	@Test
+	public void juega_TamagochiJuegaYSubeSuContentes()
+	{
+		
+		Tamagochi pet = new Tamagochi();
+		pet.Jugar();
+		Assert.assertEquals("No aumento su nivel de felicidad", true, pet.getContento() == 2);
+	}
 /*
 	@Test
 	public void pagar_PagaViajeDe90ConSaldo50()

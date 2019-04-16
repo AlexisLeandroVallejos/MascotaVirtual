@@ -22,15 +22,13 @@ public class Tamagochi {
 		if(hambriento)
 		{
 			setContento( getContento() + 1);
+			hambriento = false;
 		}
 	}
 
 	public void Jugar() throws RuntimeException
 	{
-		if(this.getContento() > 0)
-		{
-			
-		}
+		this.setContento(contento + 2);
 		if(cantidadDeVecesQueJugo > 5)
 		{
 			this.hambriento = true;
@@ -71,5 +69,9 @@ public class Tamagochi {
 		// TODO Auto-generated method stub
 		return this.hambriento;
 	}
-	
+
+	public void setHambrienta(boolean valor) {
+		// TODO Auto-generated method stub
+		this.hambriento = valor;
+	}	
 }
